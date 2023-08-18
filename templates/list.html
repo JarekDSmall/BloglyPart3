@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}User List{% endblock %}
+
+{% block content %}
+    <h1 class="my-4">User List</h1>
+    <ul class="list-group">
+        {% for user in users %}
+            <li class="list-group-item">
+                <a href="{{ url_for('user_detail', user_id=user.id) }}">{{ user.username }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('add_user') }}" class="btn btn-primary my-3">Add User</a>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block content %}
+    <div class="container my-4">
+        <h1>Edit User</h1>
+        <form method="POST" action="{{ url_for('edit_user', user_id=user.id) }}" class="my-3">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" required>
+            </div>
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" value="{{ user.first_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" value="{{ user.last_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
+            </div>
+            <div class="form-group">
+                <label for="bio">Bio:</label>
+                <textarea class="form-control" id="bio" name="bio">{{ user.bio }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="profile_picture">Profile Picture URL:</label>
+                <input type="text" class="form-control" id="profile_picture" name="profile_picture" value="{{ user.profile_picture }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a href="{{ url_for('user_detail', user_id=user.id) }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+{% endblock %}
